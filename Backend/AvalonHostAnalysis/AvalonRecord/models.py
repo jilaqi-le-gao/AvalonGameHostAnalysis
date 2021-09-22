@@ -29,6 +29,7 @@ class PlayerRoles(models.Model):
     PlayerRole = models.ForeignKey(GameRoles, on_delete=models.RESTRICT)
     AnnouncedPAI = models.BooleanField(default=False)
     DeAnnouncedPAI = models.BooleanField(default=False)
+    Winning = models.BooleanField(default=False)
 
 
 class GameRoundOne(models.Model):

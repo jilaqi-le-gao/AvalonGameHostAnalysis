@@ -1,9 +1,9 @@
 <template>
 <v-app>
-    <GeneralNavi />
-    <v-main>
-        <GameProgress />
-    </v-main>
+  <GeneralNavi />
+  <v-main>
+    <GameProgress />
+  </v-main>
 </v-app>
 </template>
 
@@ -12,19 +12,20 @@ import GeneralNavi from '@/components/NavigationSide';
 import GameProgress from '@/components/GameRecordPage/GameProgress';
 
 export default {
-	name: 'GameRecordPage',
-	components: {
-        GeneralNavi,
-        GameProgress,
-	},
-	data: () => {
+  name: 'GameRecordPage',
+  components: {
+    GeneralNavi,
+    GameProgress,
+  },
+  data: function () {
+    return {
+    }
+  },
+  mounted () {
 
-	},
-	mounted () {
+  },
+  methods: {
 
-	},
-	methods: {
-
-	},
+  },
 }
 </script>

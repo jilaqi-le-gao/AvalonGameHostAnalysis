@@ -1,5 +1,5 @@
 <template>
-  <v-stepper-content step="1">
+  <v-stepper-content step="2">
     <v-card
       class="mb-12"
       color="grey lighten-1"
@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-  name: 'PlayerInputSetp',
+  name: 'SingleRoundInput',
   components: {
   },
   data: function () {
