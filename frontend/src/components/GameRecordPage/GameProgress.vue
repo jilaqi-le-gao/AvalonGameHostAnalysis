@@ -10,24 +10,7 @@ fluid
         玩家参与确认
       </v-stepper-step>
 
-      <v-stepper-content class="mb-2" step="1">
-        <v-card
-          class="mb-12"
-          color="grey lighten-1"
-          height="200px"
-        ></v-card>
-
-        <v-btn
-          color="primary"
-          @click="e1 = 2"
-        >
-          确认
-        </v-btn>
-
-        <v-btn text>
-          取消
-        </v-btn>
-      </v-stepper-content>
+      <PlayerInputSetp />
 
 
 
@@ -35,76 +18,49 @@ fluid
         editable
         step="2"
       >
-        第一局
+        第1轮出车记录
       </v-stepper-step>
 
-      <v-stepper-content class="mb-2" step="2">
-        <v-card
-          class="mb-12"
-          color="grey lighten-1"
-          height="200px"
-        ></v-card>
-
-        <v-btn
-          color="primary"
-          @click="e1 = 3"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content>
+      <SingleRoundInput :RoundNumber="1" :StepNumber="2" />
 
 
 
       <v-stepper-step 
         editable
         step="3">
-        第二局
+        第2轮出车记录
       </v-stepper-step>
 
-      <v-stepper-content class="mb-2" step="3">
-        <v-card
-          class="mb-12"
-          color="grey lighten-1"
-          height="200px"
-        ></v-card>
-
-        <v-btn
-          color="primary"
-          @click="e1 = 1"
-        >
-          Continue
-        </v-btn>
-
-        <v-btn text>
-          Cancel
-        </v-btn>
-      </v-stepper-content>
+      <SingleRoundInput :RoundNumber="2" :StepNumber="3" />
 
       
 
       <v-stepper-step 
         editable
         step="4">
-        第三局
+        第3轮出车记录
       </v-stepper-step>
+      
+      <SingleRoundInput :RoundNumber="3" :StepNumber="4" />
 
 
       <v-stepper-step 
         editable
         step="5">
-        第四局
+        第4轮出车记录
       </v-stepper-step>
+      
+      <SingleRoundInput :RoundNumber="4" :StepNumber="5" />
       
 
       <v-stepper-step 
         editable
         step="6">
-        第五局
+        第5轮出车记录
       </v-stepper-step>
+
+      
+      <SingleRoundInput :RoundNumber="5" :StepNumber="6" />
       
 
       <v-stepper-step 
@@ -119,11 +75,18 @@ fluid
 </template>
 <script>
 // import { mapGetters  } from 'vuex';
+import PlayerInputSetp from './PlayerInputStep.vue';
+import SingleRoundInput from './SingleRoundInput.vue';
+
 export default {
   name: "GameProgress",
   data: function () {
     return {
     }
+  },
+  components: {
+    PlayerInputSetp,
+    SingleRoundInput,
   },
   computed: {
     current_steps: {
