@@ -10,12 +10,14 @@
         第一试车
       </v-card-title>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarOne.Initiator"
         :items="SelectedPlayers"
         label="带车人"
         chips
       ></v-combobox>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarOne.CarPlayers"
         :items="SelectedPlayers"
         label="出车人选"
@@ -23,6 +25,7 @@
         chips
       ></v-combobox>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarOne.VoteForYes"
         :items="SelectedPlayers"
         label="赞同本车人员"
@@ -47,12 +50,14 @@
         第二试车
       </v-card-title>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarTwo.Initiator"
         :items="SelectedPlayers"
         label="带车人"
         chips
       ></v-combobox>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarTwo.CarPlayers"
         :items="SelectedPlayers"
         label="出车人选"
@@ -60,6 +65,7 @@
         chips
       ></v-combobox>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.TestCarTwo.VoteForYes"
         :items="SelectedPlayers"
         label="赞同本车人员"
@@ -84,12 +90,14 @@
         必出位
       </v-card-title>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.FinalCar.Initiator"
         :items="SelectedPlayers"
         label="带车人"
         chips
       ></v-combobox>
       <v-combobox
+        class="mx-2"
         v-model="RoundInfo.FinalCar.CarPlayers"
         :items="SelectedPlayers"
         label="出车人选"

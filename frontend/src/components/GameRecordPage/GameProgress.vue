@@ -69,6 +69,8 @@ fluid
         局终总结
       </v-stepper-step>
 
+      <GameEndingSummary />
+
 
   </v-stepper>
 </v-container>
@@ -77,6 +79,7 @@ fluid
 // import { mapGetters  } from 'vuex';
 import PlayerInputSetp from './PlayerInputStep.vue';
 import SingleRoundInput from './SingleRoundInput.vue';
+import GameEndingSummary from './GameEndingSummary.vue';
 
 export default {
   name: "GameProgress",
@@ -87,6 +90,7 @@ export default {
   components: {
     PlayerInputSetp,
     SingleRoundInput,
+    GameEndingSummary,
   },
   computed: {
     current_steps: {

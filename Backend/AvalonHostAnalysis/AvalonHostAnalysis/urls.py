@@ -14,8 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.shortcuts import redirect
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('', lambda req: redirect('sibyl/login/')),
     path('admin/', admin.site.urls),
+    path('sibyl/login/', auth_views.LoginView.as_view(template_name='FRONTEND/login.html')),
+    path('sibyl/logout/', auth_views.LogoutView.as_view(template_name='FRONTEND/logout.html')),
+    path('sibyl/page/', include('AvalonPages.urls')),
+    path('sibyl/api/', include('AvalonRecord.urls')),
+    path('sibyl/auth/', include('authlink.urls')),
 ]

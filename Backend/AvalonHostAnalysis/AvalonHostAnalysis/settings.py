@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-b%n%q4_=3b!(vrsxxos@&r4tf617#0!ks@241e%$rw(4li*a_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['106.15.77.157', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'AvalonRecord.apps.AvalonrecordConfig',
+    'AvalonPages.apps.AvalonpagesConfig',
+    'authlink.apps.AuthlinkConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
