@@ -126,3 +126,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/sibyl/page/RecordGame/'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
