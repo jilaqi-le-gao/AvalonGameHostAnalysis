@@ -29,6 +29,25 @@
 
             <v-divider></v-divider>
 
+            <v-list>
+                <v-list-item class="px-2">
+                <v-list-item-avatar 
+                    height="80"
+                    width="80">
+                    <v-img src="@/assets/36..04.jpg"></v-img>
+                </v-list-item-avatar>
+                </v-list-item>
+                <v-list-item link>
+                    <v-list-item-content>
+                        <v-list-item-title class="title">
+                        {{ current_user }}
+                        </v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+
+            <v-divider></v-divider>
+
             <v-list
                 dense
                 nav
@@ -83,6 +102,8 @@
     
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
     name: 'GeneralNavi',
     data () {
@@ -90,5 +111,13 @@ export default {
             drawer: false,
         }
     },
+    mounted (){
+        this.$store.dispatch('GameProgressData/upate_current_user');
+    },
+    computed: {
+        ...mapGetters ({
+            current_user: 'GameProgressData/get_current_user',
+        }),
+    }
 }
 </script>
