@@ -10,9 +10,12 @@ class OneGameDataSaver(models.Model):
                        ('Can Update one game', 'Can Update one game'),
                        ('Can view game result', 'Can view game result')]
 
-    recorder = models.ForeignKey(User, on_delete=models.RESTRICT)
-    game_info = models.JSONField(default=dict())
-    score_diff = models.JSONField(default=dict())
+    recorder = models.CharField(max_length=50)
+    SelectedPlayers = models.JSONField(default=dict)
+    RoundsData = models.JSONField(default=dict)
+    PlayerRoles = models.JSONField(default=dict)
+    WinOrLoss = models.BooleanField(default=False)
+    AfterMatch = models.JSONField(default=dict)
 
 
 class ScoreBoard(models.Model):

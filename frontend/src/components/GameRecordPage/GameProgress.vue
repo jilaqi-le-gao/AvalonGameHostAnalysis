@@ -73,6 +73,7 @@ fluid
 
 
   </v-stepper>
+
 </v-container>
 </template>
 <script>
@@ -92,13 +93,16 @@ export default {
     SingleRoundInput,
     GameEndingSummary,
   },
+  mounted (){
+    this.$store.dispatch('GameProgressData/get_all_player_list');
+  },
   computed: {
     current_steps: {
       get () {
         return this.$store.state.GameProgressData.Stepper;
       },
       set (value) {
-        this.$store.dispatch('GameProgressData/updateStep', value)
+        this.$store.dispatch('GameProgressData/updateStep', value);
       },
     },
     // ...mapGetters ({

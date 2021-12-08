@@ -130,3 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/sibyl/page/RecordGame/'
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+FAKE_AUTH = True

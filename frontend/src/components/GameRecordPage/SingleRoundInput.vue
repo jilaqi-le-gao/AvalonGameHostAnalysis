@@ -36,7 +36,7 @@
       <v-alert type="info" v-if="RoundInfo.TestCarOne.VoteForYes.length>SelectedPlayers.length/2">意见一致出车！</v-alert>
       <v-select 
       v-if="RoundInfo.TestCarOne.VoteForYes.length>SelectedPlayers.length/2" 
-      v-model="RoundInfo.TestCarOne.VoteResultFailNumber" 
+      v-model="RoundInfo.VoteResultFailNumber" 
       :items="BoomNumber"
       label="出车几炸"></v-select>
     </v-card>
@@ -76,7 +76,7 @@
       <v-alert type="info" v-if="RoundInfo.TestCarTwo.VoteForYes.length>SelectedPlayers.length/2">意见一致出车！</v-alert>
       <v-select 
       v-if="RoundInfo.TestCarTwo.VoteForYes.length>SelectedPlayers.length/2" 
-      v-model="RoundInfo.TestCarTwo.VoteResultFailNumber" 
+      v-model="RoundInfo.VoteResultFailNumber" 
       :items="BoomNumber"
       label="出车几炸"></v-select>
     </v-card>
@@ -105,7 +105,7 @@
         chips
       ></v-combobox>
       <v-select 
-      v-model="RoundInfo.FinalCar.VoteResultFailNumber" 
+      v-model="RoundInfo.VoteResultFailNumber" 
       :items="BoomNumber"
       label="出车几炸"></v-select>
     </v-card>
@@ -136,20 +136,18 @@ export default {
     return {
       RoundInfo: {
         WinOrLoss: false,
+        VoteResultFailNumber: null,
         TestCarOne: {
-          VoteResultFailNumber: null,
           Initiator: '',
           CarPlayers: [],
           VoteForYes: [],
         },
         TestCarTwo: {
-          VoteResultFailNumber: null,
           Initiator: '',
           CarPlayers: [],
           VoteForYes: [],
         },
         FinalCar: {
-          VoteResultFailNumber: null,
           Initiator: '',
           CarPlayers: []
         }
@@ -164,6 +162,11 @@ export default {
   methods: {
     NextStep(){
       this.$store.dispatch('GameProgressData/updateStep', this.StepNumber + 1);
+      
+      this.$store.dispatch('GameProgressData/save_each_round', {
+        RoundInfo: this.RoundInfo,
+        RoundIndex: this.RoundNumber,
+      })
     },
   },
   computed: {
