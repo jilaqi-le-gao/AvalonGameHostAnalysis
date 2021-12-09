@@ -11,6 +11,7 @@ class OneGameDataSaver(models.Model):
                        ('Can view game result', 'Can view game result')]
 
     recorder = models.CharField(max_length=50)
+    RecordTime = models.DateTimeField(default='2021-12-01 00:00')
     SelectedPlayers = models.JSONField(default=dict)
     RoundsData = models.JSONField(default=dict)
     PlayerRoles = models.JSONField(default=dict)

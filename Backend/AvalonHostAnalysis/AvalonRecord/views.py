@@ -5,6 +5,7 @@ from .models import UserInfo, OneGameDataSaver
 import json
 from django.conf import settings
 from django.http import Http404
+from django.utils import timezone
 
 # Create your views here.
 
@@ -23,7 +24,9 @@ def get_all_players(request):
 
 def record_post(request):
     request_body = json.loads(request.body.decode('utf-8'))
+    now = timezone.now()
     this_record = OneGameDataSaver(recorder=request_body['Recoder'])
+    this_record.RecordTime = now
     this_record.SelectedPlayers = request_body['SelectedPlayers']
     this_record.RoundsData = request_body['RoundsData']
     this_record.PlayerRoles = request_body['PlayerRoles']
