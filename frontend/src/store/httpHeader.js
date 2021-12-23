@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const axiosLocalInstance = axios.create({
-  baseURL: "/avalon",   // /proxy
+  baseURL: "/avalon",   // /proxy    /avalon
 });
 
 

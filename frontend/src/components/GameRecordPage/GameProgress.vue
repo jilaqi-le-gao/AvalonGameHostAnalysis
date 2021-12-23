@@ -108,6 +108,12 @@ export default {
     // ...mapGetters ({
     //   // Stepper: 'GameProgressData/get_stepper',
     // }),
-    },
+  },
+  watch: {
+    // current_steps (newVal, oldVal) {
+    //   console.log(newVal, oldVal);
+    //   this.$store.dispatch('GameProgressData/updateStep', 2);
+    // }
+  }
 }
 </script>

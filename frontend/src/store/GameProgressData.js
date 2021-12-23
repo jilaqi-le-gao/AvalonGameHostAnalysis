@@ -6,7 +6,103 @@ const state = {
   Stepper: 1,
   PlayerList: [],
   SelectedPlayers: [],
-  RoundsData: [{}, {}, {}, {}, {}],
+  RoundsData: [
+    {
+      lancelot_change: false,
+      WinOrLoss: false,
+      VoteResultFailNumber: null,
+      TestCarOne: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      TestCarTwo: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      FinalCar: {
+        Initiator: '',
+        CarPlayers: []
+      }
+    }, 
+    {
+      lancelot_change: false,
+      WinOrLoss: false,
+      VoteResultFailNumber: null,
+      TestCarOne: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      TestCarTwo: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      FinalCar: {
+        Initiator: '',
+        CarPlayers: []
+      }
+    }, 
+    {
+      lancelot_change: false,
+      WinOrLoss: false,
+      VoteResultFailNumber: null,
+      TestCarOne: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      TestCarTwo: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      FinalCar: {
+        Initiator: '',
+        CarPlayers: []
+      }
+    }, 
+    {
+      lancelot_change: false,
+      WinOrLoss: false,
+      VoteResultFailNumber: null,
+      TestCarOne: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      TestCarTwo: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      FinalCar: {
+        Initiator: '',
+        CarPlayers: []
+      }
+    }, 
+    {
+      lancelot_change: false,
+      WinOrLoss: false,
+      VoteResultFailNumber: null,
+      TestCarOne: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      TestCarTwo: {
+        Initiator: '',
+        CarPlayers: [],
+        VoteForYes: [],
+      },
+      FinalCar: {
+        Initiator: '',
+        CarPlayers: []
+      }
+    }
+  ],
   PlayerRoles: {},
   WinOrLoss: false,
   AfterMatch: {},
@@ -18,6 +114,7 @@ const state = {
 
 const mutations = {
   UPDATE_STEP(state, payload){
+    // console.log('step update', payload);
     state.Stepper = payload;
   },
   SAVE_SELECTED_PLAYERS (state, payload){

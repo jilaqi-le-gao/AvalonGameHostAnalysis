@@ -19,16 +19,34 @@ class OneGameDataSaver(models.Model):
     AfterMatch = models.JSONField(default=dict)
 
 
-class ScoreBoard(models.Model):
-    season = models.CharField(max_length=10)
-    player = models.ForeignKey(User, on_delete=models.RESTRICT)
-    score = models.IntegerField(default=1000)
-
-
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.RESTRICT)
     nickname = models.CharField(max_length=20, default='')
     # other statics data here.
+    MerlinRounds = models.IntegerField(default=0)
+    MerlinWins = models.IntegerField(default=0)
+    PaiRounds = models.IntegerField(default=0)
+    PaiWins = models.IntegerField(default=0)
+    MogannaRounds = models.IntegerField(default=0)
+    MogannaWins = models.IntegerField(default=0)
+    BadRounds = models.IntegerField(default=0)
+    BadWins = models.IntegerField(default=0)
+
+
+class Seasons(models.Model):
+    SeasonName = models.CharField(max_length=40, primary_key=True)
+    SeasonStart = models.DateField(blank=True)
+    SeasonEnd = models.DateField(blank=True)
+    SeasonKing = models.CharField(max_length=40)
+    SeasonDirtyKing1 = models.CharField(max_length=40)
+    SeasonDirtyKing2 = models.CharField(max_length=40)
+    SeasonDirtyKing3 = models.CharField(max_length=40)
+
+
+class ScoreBoard(models.Model):
+    season = models.ForeignKey(Seasons, on_delete=models.RESTRICT)
+    player = models.ForeignKey(User, on_delete=models.RESTRICT)
+    score = models.IntegerField(default=1000)
 
 
 # class GamePlayer(models.Model):

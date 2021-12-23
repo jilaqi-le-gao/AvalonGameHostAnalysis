@@ -111,6 +111,8 @@ export default {
           BadGuy: {Player: '', name: '爪牙'},
           Aobolun: {Player: '', name: '奥博伦'},
           Modeleide: {Player: '', name: '莫德雷德'},
+          Lanclot_good: {Player: '', name: '兰斯洛特（好）'},
+          Lanclot_bad: {Player: '', name: '兰斯洛特（坏）'},
         },
         ClaimPai: [],
       },

@@ -44,6 +44,20 @@ module.exports = {
       // extracted common chunks and vendor chunks.
       chunks: ['chunk-vendors', 'chunk-common', 'logout']
     },
+    'ViewGameHistory': {
+      // entry for the page
+      entry: 'src/pages/ViewGameHistory/main.js',
+      // the source template
+      template: 'public/index.html',
+      // output as dist/index.html
+      filename: 'ViewGameHistory.html',
+      // when using title option,
+      // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
+      title: 'ViewGameHistory',
+      // chunks to include on this page, by default includes
+      // extracted common chunks and vendor chunks.
+      chunks: ['chunk-vendors', 'chunk-common', 'ViewGameHistory']
+    },
   },
   transpileDependencies: [
     'vuetify'

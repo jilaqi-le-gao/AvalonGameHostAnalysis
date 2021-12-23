@@ -1,7 +1,7 @@
 <template>
   <v-stepper-content class="mb-2" :step="StepNumber">
     
-    <v-card
+    <!-- <v-card
       elevation="8"
       outlined
       class="mb-5"
@@ -79,15 +79,22 @@
       v-model="RoundInfo.VoteResultFailNumber" 
       :items="BoomNumber"
       label="出车几炸"></v-select>
-    </v-card>
+    </v-card> -->
 
     <v-card
       elevation="8"
       outlined
       class="mb-12"
     >
+      <v-card-subtitle>
+        <v-checkbox
+          v-model="RoundInfo.lancelot_change"
+          label="兰斯洛特是否变身份"
+          color="indigo"
+        ></v-checkbox>
+      </v-card-subtitle>
       <v-card-title>
-        必出位
+        最终车型
       </v-card-title>
       <v-combobox
         class="mx-2"
@@ -95,6 +102,7 @@
         :items="SelectedPlayers"
         label="带车人"
         chips
+        clearable
       ></v-combobox>
       <v-combobox
         class="mx-2"
@@ -103,10 +111,12 @@
         label="出车人选"
         multiple
         chips
+        clearable
       ></v-combobox>
       <v-select 
       v-model="RoundInfo.VoteResultFailNumber" 
       :items="BoomNumber"
+      clearable
       label="出车几炸"></v-select>
     </v-card>
 
@@ -114,12 +124,9 @@
       color="primary"
       @click="NextStep"
     >
-      确认
+      下一步
     </v-btn>
 
-    <v-btn text>
-      取消
-    </v-btn>
   </v-stepper-content>
 </template>
 <script>
@@ -134,24 +141,6 @@ export default {
   },
   data: function () {
     return {
-      RoundInfo: {
-        WinOrLoss: false,
-        VoteResultFailNumber: null,
-        TestCarOne: {
-          Initiator: '',
-          CarPlayers: [],
-          VoteForYes: [],
-        },
-        TestCarTwo: {
-          Initiator: '',
-          CarPlayers: [],
-          VoteForYes: [],
-        },
-        FinalCar: {
-          Initiator: '',
-          CarPlayers: []
-        }
-      },
       TestCarNum: 1,
       BoomNumber: [0, 1, 2, 3]
     }
@@ -163,17 +152,36 @@ export default {
     NextStep(){
       this.$store.dispatch('GameProgressData/updateStep', this.StepNumber + 1);
       
-      this.$store.dispatch('GameProgressData/save_each_round', {
-        RoundInfo: this.RoundInfo,
-        RoundIndex: this.RoundNumber,
-      })
+      // this.$store.dispatch('GameProgressData/save_each_round', {
+      //   RoundInfo: this.RoundInfo,
+      //   RoundIndex: this.RoundNumber,
+      // })
     },
   },
   computed: {
     ...mapGetters ({
       SelectedPlayers: 'GameProgressData/get_SelectedPlayer',
     }),
-
+    RoundInfo: {
+      get () {
+        return this.$store.state.GameProgressData.RoundsData[this.RoundNumber-1];
+      },
+      set (value) {
+        this.$store.dispatch('GameProgressData/save_each_round', {
+          RoundInfo: value,
+          RoundIndex: this.RoundNumber,
+        })
+      },
+    }
+  },
+  watch: {
+    'RoundInfo.VoteResultFailNumber' (newVal) {
+      if (newVal > 0){
+        this.RoundInfo.WinOrLoss = false;
+      }else{
+        this.RoundInfo.WinOrLoss = true;
+      }
+    }
   }
 }
 </script>
